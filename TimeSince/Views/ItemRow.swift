@@ -21,7 +21,7 @@ struct ItemRow: View {
                 .foregroundColor(themeManager.color(for: .accent))
         }
         .padding()
-        .background(themeManager.color(for: .buttonBackground))
+        .background(themeManager.color(for: .background))
         .cornerRadius(8)
         .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 2, x: 2, y:2)
     }

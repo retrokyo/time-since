@@ -50,7 +50,7 @@ class ThemeManager: ObservableObject {
         case .dark:
             return AnyViewModifier(SystemThemeModifier(colorScheme: .dark))
         case .nineties:
-            return AnyViewModifier(NinetiesThemeModifier())
+            return AnyViewModifier(NinetiesThemeModifier(themeManager: self))
         }
     }
     

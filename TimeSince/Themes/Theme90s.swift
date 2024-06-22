@@ -17,11 +17,13 @@ struct Theme90s {
 }
 
 struct NinetiesThemeModifier: ViewModifier {
+    @ObservedObject var themeManager: ThemeManager
+    
     func body(content: Content) -> some View {
         content
             .background(Theme90s.background)
             .foregroundColor(Theme90s.text)
-            .font(.custom(Theme90s.font, size: 24))
+            .environment(\.font, themeManager.font(for: .body))
     }
 }
 

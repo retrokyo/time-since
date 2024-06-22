@@ -42,7 +42,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Last Time Since")
-                        .font(themeManager.font(for: .headline))
+                        .font(themeManager.font(for: .title2))
                         .foregroundColor(themeManager.color(for: .text))
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -59,7 +59,13 @@ struct ContentView: View {
                             }
                         }
                     } label: {
-                        Label("Theme", systemImage: "paintbrush")
+                        HStack {
+                            Text("Theme")
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(themeManager.color(for: .accent))
+                                .font(.caption)
+                        }
+                        .font(themeManager.font(for: .body))
                     }
                 }
             }
@@ -90,6 +96,7 @@ struct ContentView: View {
                 itemToEdit = nil
             })
         }
+        .environment(\.font, themeManager.font(for: .body))
     }
 }
 
