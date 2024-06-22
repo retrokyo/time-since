@@ -1,0 +1,871 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC443E9E2C25846B0076688E /* TimeSinceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443E9D2C25846B0076688E /* TimeSinceApp.swift */; };
+		BC443EA42C2584720076688E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC443EA32C2584720076688E /* Assets.xcassets */; };
+		BC443EA72C2584720076688E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC443EA62C2584720076688E /* Preview Assets.xcassets */; };
+		BC443EB12C2584730076688E /* TimeSinceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EB02C2584730076688E /* TimeSinceTests.swift */; };
+		BC443EBB2C2584730076688E /* TimeSinceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EBA2C2584730076688E /* TimeSinceUITests.swift */; };
+		BC443EBD2C2584730076688E /* TimeSinceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EBC2C2584730076688E /* TimeSinceUITestsLaunchTests.swift */; };
+		BC443ECC2C2584ED0076688E /* TimerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443ECB2C2584ED0076688E /* TimerItem.swift */; };
+		BC443ED52C2585780076688E /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443ED42C2585780076688E /* ItemRow.swift */; };
+		BC443ED72C2585B90076688E /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443ED62C2585B90076688E /* AddEditItemView.swift */; };
+		BC443ED92C2585E20076688E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443ED82C2585E20076688E /* ContentView.swift */; };
+		BC443EE22C25869E0076688E /* TimerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EE12C25869E0076688E /* TimerListViewModel.swift */; };
+		BC443EEF2C258C3C0076688E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC443EEE2C258C3C0076688E /* WidgetKit.framework */; };
+		BC443EF12C258C3C0076688E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC443EF02C258C3C0076688E /* SwiftUI.framework */; };
+		BC443EF42C258C3C0076688E /* TimeSinceWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EF32C258C3C0076688E /* TimeSinceWidgetBundle.swift */; };
+		BC443EF62C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EF52C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift */; };
+		BC443EF82C258C3C0076688E /* TimeSinceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EF72C258C3C0076688E /* TimeSinceWidget.swift */; };
+		BC443EFA2C258C3C0076688E /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443EF92C258C3C0076688E /* AppIntent.swift */; };
+		BC443EFC2C258C3F0076688E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC443EFB2C258C3F0076688E /* Assets.xcassets */; };
+		BC443F002C258C3F0076688E /* TimeSinceWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BC443EEC2C258C3C0076688E /* TimeSinceWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BC443F052C2591FE0076688E /* TimerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443ECB2C2584ED0076688E /* TimerItem.swift */; };
+		BC443F0B2C25966E0076688E /* ItemActionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443F0A2C25966E0076688E /* ItemActionModal.swift */; };
+		BC443F0D2C25A42D0076688E /* ModalOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443F0C2C25A42D0076688E /* ModalOverlay.swift */; };
+		BC443F102C25C8290076688E /* Theme90s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443F0F2C25C8290076688E /* Theme90s.swift */; };
+		BC443F122C25CDE60076688E /* AppInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC443F112C25CDE60076688E /* AppInfo.plist */; };
+		BC443F142C25D04A0076688E /* VT323.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC443F132C25D04A0076688E /* VT323.ttf */; };
+		BC443F152C25D04A0076688E /* VT323.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC443F132C25D04A0076688E /* VT323.ttf */; };
+		BC443F1B2C25D1CC0076688E /* WidgetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC443F172C25D0A80076688E /* WidgetInfo.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC443EAD2C2584730076688E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC443E922C25846B0076688E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC443E992C25846B0076688E;
+			remoteInfo = TimeSince;
+		};
+		BC443EB72C2584730076688E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC443E922C25846B0076688E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC443E992C25846B0076688E;
+			remoteInfo = TimeSince;
+		};
+		BC443EFE2C258C3F0076688E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC443E922C25846B0076688E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC443EEB2C258C3C0076688E;
+			remoteInfo = TimeSinceWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BC443F042C258C3F0076688E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BC443F002C258C3F0076688E /* TimeSinceWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BC443E9A2C25846B0076688E /* TimeSince.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSince.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC443E9D2C25846B0076688E /* TimeSinceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceApp.swift; sourceTree = "<group>"; };
+		BC443EA32C2584720076688E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC443EA62C2584720076688E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC443EAC2C2584730076688E /* TimeSinceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSinceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC443EB02C2584730076688E /* TimeSinceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceTests.swift; sourceTree = "<group>"; };
+		BC443EB62C2584730076688E /* TimeSinceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSinceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC443EBA2C2584730076688E /* TimeSinceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceUITests.swift; sourceTree = "<group>"; };
+		BC443EBC2C2584730076688E /* TimeSinceUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC443ECB2C2584ED0076688E /* TimerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerItem.swift; sourceTree = "<group>"; };
+		BC443ED42C2585780076688E /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		BC443ED62C2585B90076688E /* AddEditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditItemView.swift; sourceTree = "<group>"; };
+		BC443ED82C2585E20076688E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC443EE12C25869E0076688E /* TimerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListViewModel.swift; sourceTree = "<group>"; };
+		BC443EEC2C258C3C0076688E /* TimeSinceWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimeSinceWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC443EEE2C258C3C0076688E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BC443EF02C258C3C0076688E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BC443EF32C258C3C0076688E /* TimeSinceWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceWidgetBundle.swift; sourceTree = "<group>"; };
+		BC443EF52C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		BC443EF72C258C3C0076688E /* TimeSinceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSinceWidget.swift; sourceTree = "<group>"; };
+		BC443EF92C258C3C0076688E /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		BC443EFB2C258C3F0076688E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC443F0A2C25966E0076688E /* ItemActionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemActionModal.swift; sourceTree = "<group>"; };
+		BC443F0C2C25A42D0076688E /* ModalOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalOverlay.swift; sourceTree = "<group>"; };
+		BC443F0F2C25C8290076688E /* Theme90s.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme90s.swift; sourceTree = "<group>"; };
+		BC443F112C25CDE60076688E /* AppInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		BC443F132C25D04A0076688E /* VT323.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VT323.ttf; sourceTree = "<group>"; };
+		BC443F172C25D0A80076688E /* WidgetInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WidgetInfo.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC443E972C25846B0076688E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EA92C2584730076688E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EB32C2584730076688E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EE92C258C3C0076688E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EF12C258C3C0076688E /* SwiftUI.framework in Frameworks */,
+				BC443EEF2C258C3C0076688E /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC443E912C25846B0076688E = {
+			isa = PBXGroup;
+			children = (
+				BC443E9C2C25846B0076688E /* TimeSince */,
+				BC443EAF2C2584730076688E /* TimeSinceTests */,
+				BC443EB92C2584730076688E /* TimeSinceUITests */,
+				BC443EF22C258C3C0076688E /* TimeSinceWidget */,
+				BC443EED2C258C3C0076688E /* Frameworks */,
+				BC443E9B2C25846B0076688E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC443E9B2C25846B0076688E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC443E9A2C25846B0076688E /* TimeSince.app */,
+				BC443EAC2C2584730076688E /* TimeSinceTests.xctest */,
+				BC443EB62C2584730076688E /* TimeSinceUITests.xctest */,
+				BC443EEC2C258C3C0076688E /* TimeSinceWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC443E9C2C25846B0076688E /* TimeSince */ = {
+			isa = PBXGroup;
+			children = (
+				BC443F0E2C25C8180076688E /* Themes */,
+				BC443EE02C2586890076688E /* ViewModels */,
+				BC443EDD2C2586600076688E /* Services */,
+				BC443EDC2C2586390076688E /* Resources */,
+				BC443ECD2C2585100076688E /* Views */,
+				BC443ECA2C2584DA0076688E /* Models */,
+				BC443EC92C2584C90076688E /* Extensions */,
+				BC443E9D2C25846B0076688E /* TimeSinceApp.swift */,
+				BC443EA52C2584720076688E /* Preview Content */,
+			);
+			path = TimeSince;
+			sourceTree = "<group>";
+		};
+		BC443EA52C2584720076688E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EA62C2584720076688E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC443EAF2C2584730076688E /* TimeSinceTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EB02C2584730076688E /* TimeSinceTests.swift */,
+			);
+			path = TimeSinceTests;
+			sourceTree = "<group>";
+		};
+		BC443EB92C2584730076688E /* TimeSinceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EBA2C2584730076688E /* TimeSinceUITests.swift */,
+				BC443EBC2C2584730076688E /* TimeSinceUITestsLaunchTests.swift */,
+			);
+			path = TimeSinceUITests;
+			sourceTree = "<group>";
+		};
+		BC443EC92C2584C90076688E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BC443ECA2C2584DA0076688E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC443ECB2C2584ED0076688E /* TimerItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC443ECD2C2585100076688E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC443ED42C2585780076688E /* ItemRow.swift */,
+				BC443ED62C2585B90076688E /* AddEditItemView.swift */,
+				BC443ED82C2585E20076688E /* ContentView.swift */,
+				BC443F0A2C25966E0076688E /* ItemActionModal.swift */,
+				BC443F0C2C25A42D0076688E /* ModalOverlay.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC443EDC2C2586390076688E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC443F132C25D04A0076688E /* VT323.ttf */,
+				BC443EA32C2584720076688E /* Assets.xcassets */,
+				BC443F112C25CDE60076688E /* AppInfo.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BC443EDD2C2586600076688E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BC443EE02C2586890076688E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EE12C25869E0076688E /* TimerListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BC443EED2C258C3C0076688E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EEE2C258C3C0076688E /* WidgetKit.framework */,
+				BC443EF02C258C3C0076688E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC443EF22C258C3C0076688E /* TimeSinceWidget */ = {
+			isa = PBXGroup;
+			children = (
+				BC443EF32C258C3C0076688E /* TimeSinceWidgetBundle.swift */,
+				BC443EF52C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift */,
+				BC443EF72C258C3C0076688E /* TimeSinceWidget.swift */,
+				BC443EF92C258C3C0076688E /* AppIntent.swift */,
+				BC443EFB2C258C3F0076688E /* Assets.xcassets */,
+				BC443F172C25D0A80076688E /* WidgetInfo.plist */,
+			);
+			path = TimeSinceWidget;
+			sourceTree = "<group>";
+		};
+		BC443F0E2C25C8180076688E /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				BC443F0F2C25C8290076688E /* Theme90s.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC443E992C25846B0076688E /* TimeSince */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC443EC02C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSince" */;
+			buildPhases = (
+				BC443E962C25846B0076688E /* Sources */,
+				BC443E972C25846B0076688E /* Frameworks */,
+				BC443E982C25846B0076688E /* Resources */,
+				BC443F042C258C3F0076688E /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC443EFF2C258C3F0076688E /* PBXTargetDependency */,
+			);
+			name = TimeSince;
+			productName = TimeSince;
+			productReference = BC443E9A2C25846B0076688E /* TimeSince.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC443EAB2C2584730076688E /* TimeSinceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC443EC32C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSinceTests" */;
+			buildPhases = (
+				BC443EA82C2584730076688E /* Sources */,
+				BC443EA92C2584730076688E /* Frameworks */,
+				BC443EAA2C2584730076688E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC443EAE2C2584730076688E /* PBXTargetDependency */,
+			);
+			name = TimeSinceTests;
+			productName = TimeSinceTests;
+			productReference = BC443EAC2C2584730076688E /* TimeSinceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BC443EB52C2584730076688E /* TimeSinceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC443EC62C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSinceUITests" */;
+			buildPhases = (
+				BC443EB22C2584730076688E /* Sources */,
+				BC443EB32C2584730076688E /* Frameworks */,
+				BC443EB42C2584730076688E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC443EB82C2584730076688E /* PBXTargetDependency */,
+			);
+			name = TimeSinceUITests;
+			productName = TimeSinceUITests;
+			productReference = BC443EB62C2584730076688E /* TimeSinceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BC443EEB2C258C3C0076688E /* TimeSinceWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC443F012C258C3F0076688E /* Build configuration list for PBXNativeTarget "TimeSinceWidgetExtension" */;
+			buildPhases = (
+				BC443EE82C258C3C0076688E /* Sources */,
+				BC443EE92C258C3C0076688E /* Frameworks */,
+				BC443EEA2C258C3C0076688E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeSinceWidgetExtension;
+			productName = TimeSinceWidgetExtension;
+			productReference = BC443EEC2C258C3C0076688E /* TimeSinceWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC443E922C25846B0076688E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					BC443E992C25846B0076688E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					BC443EAB2C2584730076688E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = BC443E992C25846B0076688E;
+					};
+					BC443EB52C2584730076688E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = BC443E992C25846B0076688E;
+					};
+					BC443EEB2C258C3C0076688E = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = BC443E952C25846B0076688E /* Build configuration list for PBXProject "TimeSince" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC443E912C25846B0076688E;
+			productRefGroup = BC443E9B2C25846B0076688E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC443E992C25846B0076688E /* TimeSince */,
+				BC443EAB2C2584730076688E /* TimeSinceTests */,
+				BC443EB52C2584730076688E /* TimeSinceUITests */,
+				BC443EEB2C258C3C0076688E /* TimeSinceWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC443E982C25846B0076688E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EA72C2584720076688E /* Preview Assets.xcassets in Resources */,
+				BC443EA42C2584720076688E /* Assets.xcassets in Resources */,
+				BC443F142C25D04A0076688E /* VT323.ttf in Resources */,
+				BC443F122C25CDE60076688E /* AppInfo.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EAA2C2584730076688E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EB42C2584730076688E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EEA2C258C3C0076688E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443F1B2C25D1CC0076688E /* WidgetInfo.plist in Resources */,
+				BC443F152C25D04A0076688E /* VT323.ttf in Resources */,
+				BC443EFC2C258C3F0076688E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC443E962C25846B0076688E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EE22C25869E0076688E /* TimerListViewModel.swift in Sources */,
+				BC443ED52C2585780076688E /* ItemRow.swift in Sources */,
+				BC443F0D2C25A42D0076688E /* ModalOverlay.swift in Sources */,
+				BC443ED92C2585E20076688E /* ContentView.swift in Sources */,
+				BC443F0B2C25966E0076688E /* ItemActionModal.swift in Sources */,
+				BC443ECC2C2584ED0076688E /* TimerItem.swift in Sources */,
+				BC443E9E2C25846B0076688E /* TimeSinceApp.swift in Sources */,
+				BC443F102C25C8290076688E /* Theme90s.swift in Sources */,
+				BC443ED72C2585B90076688E /* AddEditItemView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EA82C2584730076688E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EB12C2584730076688E /* TimeSinceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EB22C2584730076688E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EBD2C2584730076688E /* TimeSinceUITestsLaunchTests.swift in Sources */,
+				BC443EBB2C2584730076688E /* TimeSinceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC443EE82C258C3C0076688E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC443EF82C258C3C0076688E /* TimeSinceWidget.swift in Sources */,
+				BC443EFA2C258C3C0076688E /* AppIntent.swift in Sources */,
+				BC443F052C2591FE0076688E /* TimerItem.swift in Sources */,
+				BC443EF62C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift in Sources */,
+				BC443EF42C258C3C0076688E /* TimeSinceWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC443EAE2C2584730076688E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC443E992C25846B0076688E /* TimeSince */;
+			targetProxy = BC443EAD2C2584730076688E /* PBXContainerItemProxy */;
+		};
+		BC443EB82C2584730076688E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC443E992C25846B0076688E /* TimeSince */;
+			targetProxy = BC443EB72C2584730076688E /* PBXContainerItemProxy */;
+		};
+		BC443EFF2C258C3F0076688E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC443EEB2C258C3C0076688E /* TimeSinceWidgetExtension */;
+			targetProxy = BC443EFE2C258C3F0076688E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BC443EBE2C2584730076688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC443EBF2C2584730076688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC443EC12C2584730076688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeSince/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeSince/Resources/AppInfo.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSince;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC443EC22C2584730076688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TimeSince/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeSince/Resources/AppInfo.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSince;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC443EC42C2584730076688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSinceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSince.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeSince";
+			};
+			name = Debug;
+		};
+		BC443EC52C2584730076688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSinceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSince.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeSince";
+			};
+			name = Release;
+		};
+		BC443EC72C2584730076688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSinceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TimeSince;
+			};
+			name = Debug;
+		};
+		BC443EC82C2584730076688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSinceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TimeSince;
+			};
+			name = Release;
+		};
+		BC443F022C258C3F0076688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeSinceWidget/WidgetInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimeSinceWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSince.TimeSinceWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC443F032C258C3F0076688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeSinceWidget/WidgetInfo.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimeSinceWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = retrokyo.TimeSince.TimeSinceWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC443E952C25846B0076688E /* Build configuration list for PBXProject "TimeSince" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC443EBE2C2584730076688E /* Debug */,
+				BC443EBF2C2584730076688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC443EC02C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSince" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC443EC12C2584730076688E /* Debug */,
+				BC443EC22C2584730076688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC443EC32C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSinceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC443EC42C2584730076688E /* Debug */,
+				BC443EC52C2584730076688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC443EC62C2584730076688E /* Build configuration list for PBXNativeTarget "TimeSinceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC443EC72C2584730076688E /* Debug */,
+				BC443EC82C2584730076688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC443F012C258C3F0076688E /* Build configuration list for PBXNativeTarget "TimeSinceWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC443F022C258C3F0076688E /* Debug */,
+				BC443F032C258C3F0076688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC443E922C25846B0076688E /* Project object */;
+}
