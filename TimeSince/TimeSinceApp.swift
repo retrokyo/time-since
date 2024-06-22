@@ -10,9 +10,13 @@ import SwiftData
 
 @main
 struct TimeSince: App {
+    @StateObject private var themeManager = ThemeManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView(modelContext: sharedModelContainer.mainContext)
+                .environmentObject(themeManager)
+                .modifier(themeManager.applyTheme())
         }
         .modelContainer(sharedModelContainer)
     }

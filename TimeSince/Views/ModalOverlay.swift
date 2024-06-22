@@ -13,11 +13,12 @@ struct ModalOverlay: View {
     let onReset: (TimerItem) -> Void
     let onDelete: (TimerItem) -> Void
     let onEdit: (TimerItem) -> Void
+    @EnvironmentObject private var themeManager: ThemeManager
     
     var body: some View {
         ZStack {
             if showingActionModal, let item = selectedItem {
-                Color.black.opacity(0.4)
+                themeManager.color(for: .background).opacity(0.4)
                     .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .onTapGesture {
                         showingActionModal = false
@@ -54,4 +55,5 @@ struct ModalOverlay: View {
         onDelete: { _ in },
         onEdit: { _ in }
     )
+    .environmentObject(ThemeManager())
 }

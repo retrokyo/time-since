@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var selectedItem: TimerItem?
     @State private var showingActionModal = false
     @State private var itemToEdit: TimerItem?
+    @EnvironmentObject private var themeManager: ThemeManager
     
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: TimerListViewModel(modelContext: modelContext))
@@ -23,7 +24,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Theme90s.background.ignoresSafeArea()
+                themeManager.color(for: .background).ignoresSafeArea()
                 
                 List {
                     ForEach(viewModel.items) { item in
@@ -33,22 +34,37 @@ struct ContentView: View {
                                 showingActionModal = true
                             }
                     }
-                    .listRowBackground(Theme90s.buttonBackground)
+                    .listRowBackground(themeManager.color(for: .buttonBackground))
                 }
                 .scrollContentBackground(.hidden)
             }
-            .navigationTitle("Last Time Since")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Last Time Since")
+                        .font(themeManager.font(for: .headline))
+                        .foregroundColor(themeManager.color(for: .text))
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: AddEditItemView(onSave: viewModel.addItem)) {
                         Image(systemName: "plus")
-                            .foregroundColor(Theme90s.accent)
+                            .foregroundColor(themeManager.color(for: .accent))
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        Picker("App Theme", selection: $themeManager.currentTheme) {
+                            ForEach(AppTheme.allCases) { theme in
+                                Text(theme.name).tag(theme)
+                            }
+                        }
+                    } label: {
+                        Label("Theme", systemImage: "paintbrush")
                     }
                 }
             }
         }
-        .foregroundColor(Theme90s.text)
-        .font(.custom(Theme90s.font, size: 24))
+        .foregroundColor(themeManager.color(for: .text))
         .overlay(
             ModalOverlay(
                 showingActionModal: $showingActionModal,
@@ -77,16 +93,18 @@ struct ContentView: View {
     }
 }
 
+
 #Preview {
-        do {
-            let config = ModelConfiguration(isStoredInMemoryOnly: true)
-            let container = try ModelContainer(for: TimerItem.self, configurations: config)
-            let viewModel = TimerListViewModel.createPreview(modelContext: container.mainContext)
-            
-            return ContentView(modelContext: container.mainContext)
-                .modelContainer(container)
-                .environmentObject(viewModel)
-        } catch {
-            fatalError("Failed to create model container for previewing: \(error.localizedDescription)")
-        }
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: TimerItem.self, configurations: config)
+        let viewModel = TimerListViewModel.createPreview(modelContext: container.mainContext)
+        
+        return ContentView(modelContext: container.mainContext)
+            .modelContainer(container)
+            .environmentObject(viewModel)
+            .environmentObject(ThemeManager())
+    } catch {
+        fatalError("Failed to create model container for previewing: \(error.localizedDescription)")
+    }
 }

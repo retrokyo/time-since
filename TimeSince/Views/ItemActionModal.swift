@@ -14,16 +14,17 @@ struct ItemActionModal: View {
     let onEdit: () -> Void
     let onDismiss: () -> Void
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var themeManager: ThemeManager
     
     var body: some View {
         VStack(spacing: 20) {
             Text("Last time since \(item.subject) \(item.action)")
-                .font(.custom(Theme90s.font, size: 24))
-                .foregroundStyle(Theme90s.text)
+                .font(themeManager.font(for: .headline))
+                .foregroundStyle(themeManager.color(for: .text))
             
             Text(item.lastOccurrence, style: .relative)
-                .font(.custom(Theme90s.font, size: 20))
-                .foregroundColor(Theme90s.accent)
+                .font(themeManager.font(for: .subheadline))
+                .foregroundColor(themeManager.color(for: .accent))
             
             HStack(spacing: 20) {
                 ActionButton(title: "Reset", icon: "arrow.clockwise", color: .green) {
@@ -43,7 +44,7 @@ struct ItemActionModal: View {
             }
         }
         .padding()
-        .background(Theme90s.buttonBackground)
+        .background(themeManager.color(for: .buttonBackground))
         .cornerRadius(10)
         .shadow(color: .black, radius: 5, x: 5, y: 5)
     }
@@ -54,6 +55,7 @@ struct ActionButton: View {
     let icon: String
     let color: Color
     let action: () -> Void
+    @EnvironmentObject private var themeManager: ThemeManager
     
     var body: some View {
         Button(action: action) {
@@ -61,7 +63,7 @@ struct ActionButton: View {
                 Image(systemName: icon)
                     .font(.system(size: 25))
                 Text(title)
-                    .font(.caption)
+                    .font(themeManager.font(for: .caption))
             }
             .foregroundColor(color)
         }
@@ -76,4 +78,5 @@ struct ActionButton: View {
         onEdit: {},
         onDismiss: {}
     )
+    .environmentObject(ThemeManager())
 }

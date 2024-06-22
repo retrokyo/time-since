@@ -16,6 +16,15 @@ struct Theme90s {
     static let font = "VT323"
 }
 
+struct NinetiesThemeModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Theme90s.background)
+            .foregroundColor(Theme90s.text)
+            .font(.custom(Theme90s.font, size: 24))
+    }
+}
+
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
