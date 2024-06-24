@@ -14,12 +14,14 @@ struct AddEditItemView: View {
     @State private var showingError = false
     @State private var errorMessage = ""
     var item: TimerItem?
+    var itemCount: Int
     var onSave: (TimerItem) -> Void
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var themeManager: ThemeManager
     
-    init(item: TimerItem? = nil, onSave: @escaping (TimerItem) -> Void) {
+    init(item: TimerItem? = nil, itemCount: Int, onSave: @escaping (TimerItem) -> Void) {
         self.item = item
+        self.itemCount = itemCount
         self.onSave = onSave
         _subject = State(initialValue: item?.subject ?? "")
         _action = State(initialValue: item?.action ?? "")
@@ -50,7 +52,8 @@ struct AddEditItemView: View {
                                 id: item?.id ?? UUID(),
                                 subject: subject,
                                 action: action,
-                                lastOccurrence: item?.lastOccurrence ?? Date()
+                                lastOccurrence: item?.lastOccurrence ?? Date(),
+                                order: item?.order ?? itemCount
                             )
                             onSave(newItem)
                             presentationMode.wrappedValue.dismiss()
@@ -99,16 +102,9 @@ struct AddEditItemView: View {
     }
 }
 
-#Preview("Add Item") {
-    NavigationView {
-        AddEditItemView(onSave: {_ in})
-            .environmentObject(ThemeManager())
-    }
-}
-
 struct AddEditItem_Previews: PreviewProvider {
     static var previews: some View {
-        AddEditItemView(onSave: { _ in })
+        AddEditItemView(itemCount: 0, onSave: { _ in })
             .environmentObject(ThemeManager())
     }
 }

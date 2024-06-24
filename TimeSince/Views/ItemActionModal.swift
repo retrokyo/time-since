@@ -72,7 +72,7 @@ struct ActionButton: View {
 
 #Preview {
     ItemActionModal(
-        item: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600)),
+        item: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600), order: 0),
         onReset: {},
         onDelete: {},
         onEdit: {},

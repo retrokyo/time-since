@@ -50,7 +50,7 @@ struct ModalOverlay: View {
 #Preview {
     ModalOverlay(
         showingActionModal: .constant(true),
-        selectedItem: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600)),
+        selectedItem: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600), order: 0),
         onReset: { _ in },
         onDelete: { _ in },
         onEdit: { _ in }

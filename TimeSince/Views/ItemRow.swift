@@ -27,11 +27,15 @@ struct ItemRow: View {
     }
 }
 
-struct ItemRow_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    ItemRow_PreviewContainer()
+}
+
+struct ItemRow_PreviewContainer: View {
+    var body: some View {
         Group {
             ForEach(AppTheme.allCases) { theme in
-                ItemRow(item: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600)))
+                ItemRow(item: TimerItem(id: UUID(), subject: "you", action: "ate", lastOccurrence: Date().addingTimeInterval(-3600), order: 0))
                     .environmentObject(ThemeManager(initialTheme: theme))
                     .previewLayout(.sizeThatFits)
                     .padding()

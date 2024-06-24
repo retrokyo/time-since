@@ -15,7 +15,10 @@ struct ContentView: View {
     @State private var selectedItem: TimerItem?
     @State private var showingActionModal = false
     @State private var itemToEdit: TimerItem?
+    @State private var showingAddItemView = false
     @EnvironmentObject private var themeManager: ThemeManager
+    @State private var refreshID = UUID()
+    @State private var isEditing = false
     
     init(modelContext: ModelContext) {
         _viewModel = StateObject(wrappedValue: TimerListViewModel(modelContext: modelContext))
@@ -30,16 +33,28 @@ struct ContentView: View {
                     ForEach(viewModel.items) { item in
                         ItemRow(item: item)
                             .onTapGesture {
-                                selectedItem = item
-                                showingActionModal = true
+                                if !isEditing {
+                                    selectedItem = item
+                                    showingActionModal = true
+                                }
                             }
-                            .listRowInsets(EdgeInsets(top: 0.8, leading: 0, bottom: 8, trailing: 0))
-                            .listRowBackground(Color.clear)
                     }
-                    .listStyle(PlainListStyle())
-                    .background(Color.clear)
+                    .onMove(perform: viewModel.moveItem)
+                    .listRowBackground(Color.clear)
                 }
-                .scrollContentBackground(.hidden)
+                .id(refreshID)
+                .background(Color.clear)
+                .listStyle(PlainListStyle())
+                .environment(\.editMode, .constant(isEditing ? .active : .inactive))
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        FloatingButton()
+                    }
+                }
+                .padding()
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -48,31 +63,24 @@ struct ContentView: View {
                         .font(themeManager.font(for: .title2))
                         .foregroundColor(themeManager.color(for: .text))
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: AddEditItemView(onSave: viewModel.addItem)) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        showingAddItemView = true
+                    }) {
                         Image(systemName: "plus")
-                            .foregroundColor(themeManager.color(for: .accent))
                     }
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        Picker("App Theme", selection: $themeManager.currentTheme) {
-                            ForEach(AppTheme.allCases) { theme in
-                                Text(theme.name).tag(theme)
-                            }
-                        }
-                    } label: {
-                        HStack {
-                            Text("Theme")
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(themeManager.color(for: .accent))
-                        }
-                        .font(themeManager.font(for: .body))
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        isEditing.toggle()
+                    }) {
+                        Text(isEditing ? "Done": "Edit")
                     }
+                    .foregroundColor(themeManager.color(for: .accent))
                 }
             }
+            .foregroundColor(themeManager.color(for: .text))
         }
-        .foregroundColor(themeManager.color(for: .text))
         .overlay(
             ModalOverlay(
                 showingActionModal: $showingActionModal,
@@ -88,8 +96,15 @@ struct ContentView: View {
                 }
             )
         )
+        .sheet(isPresented: $showingAddItemView) {
+            AddEditItemView(itemCount: viewModel.items.count, onSave: { newItem in
+                viewModel.addItem(newItem)
+                showingAddItemView = false
+            })
+            .environmentObject(themeManager)
+        }
         .sheet(item: $itemToEdit) { item in
-            AddEditItemView(item: item, onSave: { updatedItem in
+            AddEditItemView(item: item, itemCount: viewModel.items.count, onSave: { updatedItem in
                 if viewModel.items.contains(where: { $0.id == updatedItem.id }) {
                     viewModel.updateItem(updatedItem)
                 } else {

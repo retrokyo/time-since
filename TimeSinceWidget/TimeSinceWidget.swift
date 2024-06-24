@@ -78,6 +78,6 @@ private let sharedModelContainer: ModelContainer = {
     TimerWidget()
 } timeline: {
     SimpleEntry(date: .now, items: [
-        TimerItem(id: UUID(), subject: "you", action: "slept", lastOccurrence: Date().addingTimeInterval(-3600))
+        TimerItem(id: UUID(), subject: "you", action: "slept", lastOccurrence: Date().addingTimeInterval(-3600), order: 0)
     ])
 }
