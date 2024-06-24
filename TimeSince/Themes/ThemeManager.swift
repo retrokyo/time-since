@@ -2,7 +2,7 @@
 //  ThemeManager.swift
 //  TimeSince
 //
-//  Created by Froning, Reeves | Reeves | DSCD on 2024/06/22.
+//  Created by Reeves Froning on 2024/06/22.
 //
 
 import Foundation
@@ -70,26 +70,26 @@ class ThemeManager: ObservableObject {
     func font(for textStyle: Font.TextStyle) -> Font {
         switch currentTheme {
         case .nineties:
-            return .custom("VT323", size: fontSizeFor(textStyle))
+            return .custom("VT323", size: fontSizeFor90s(textStyle))
         default:
             return Font.system(textStyle)
         }
     }
     
-    private func fontSizeFor(_ textStyle: Font.TextStyle) -> CGFloat {
+    private func fontSizeFor90s(_ textStyle: Font.TextStyle) -> CGFloat {
         switch textStyle {
-        case .largeTitle: return 34
-        case .title: return 28
-        case .title2: return 22
-        case .title3: return 20
-        case .headline: return 17
-        case .body: return 17
-        case .callout: return 16
-        case .subheadline: return 15
-        case .footnote: return 13
+        case .largeTitle: return 40
+        case .title: return 34
+        case .title2: return 28
+        case .title3: return 24
+        case .headline: return 20
+        case .body: return 18
+        case .callout: return 18
+        case .subheadline: return 16
+        case .footnote: return 14
         case .caption: return 12
-        case .caption2: return 11
-        @unknown default: return 17
+        case .caption2: return 10
+        @unknown default: return 18
         }
     }
 }
@@ -165,3 +165,9 @@ enum ThemeColorRole {
     }
 }
 
+extension ThemeManager {
+    convenience init(initialTheme: AppTheme) {
+        self.init()
+        self.currentTheme = initialTheme
+    }
+}

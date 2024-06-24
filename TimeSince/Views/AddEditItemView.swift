@@ -2,7 +2,7 @@
 //  AddEditItemView.swift
 //  TimeSince
 //
-//  Created by Froning, Reeves | Reeves | DSCD on 2024/06/21.
+//  Created by Reeves Froning on 2024/06/21.
 //
 
 import SwiftUI
@@ -26,38 +26,57 @@ struct AddEditItemView: View {
     }
     
     var body: some View {
-        Form {
-            TextField("Subject (e.g., you, your mom)", text: $subject)
-                .foregroundColor(themeManager.color(for: .text))
-                .font(themeManager.font(for: .body))
-            TextField("Action (e.g., ate)", text: $action)
-                .foregroundColor(themeManager.color(for: .text))
-                .font(themeManager.font(for: .body))
-            
-            Button("Save") {
-                if validateInput() {
-                    let newItem = TimerItem(
-                        id: item?.id ?? UUID(),
-                        subject: subject,
-                        action: action,
-                        lastOccurrence: item?.lastOccurrence ?? Date()
-                    )
-                    onSave(newItem)
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            .foregroundColor(themeManager.color(for: .accent))
-            .font(themeManager.font(for: .headline))
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("Add/Edit Item")
+        ZStack {
+            themeManager.color(for: .background).ignoresSafeArea()
+            VStack(spacing: 0) {
+                HStack {
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(themeManager.color(for: .accent))
+                    .font(themeManager.font(for: .body))
+                    
+                    Spacer()
+                    
+                    Text(item == nil ? "Add Item": "Edit Item")
+                        .font(themeManager.font(for: .headline))
+                        .foregroundColor(themeManager.color(for: .text))
+                    
+                    Spacer()
+                    
+                    Button("Save") {
+                        if validateInput() {
+                            let newItem = TimerItem(
+                                id: item?.id ?? UUID(),
+                                subject: subject,
+                                action: action,
+                                lastOccurrence: item?.lastOccurrence ?? Date()
+                            )
+                            onSave(newItem)
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                    .foregroundColor(themeManager.color(for: .accent))
                     .font(themeManager.font(for: .headline))
-                    .foregroundColor(themeManager.color(for: .text))
+                }
+                .padding()
+                .background(themeManager.color(for: .background))
+                
+                Form {
+                    Section {
+                        TextField("Subject (e.g., you, your mom)", text: $subject)
+                            .foregroundColor(themeManager.color(for: .text))
+                            .font(themeManager.font(for: .body))
+                        TextField("Action (e.g., ate)", text: $action)
+                            .foregroundColor(themeManager.color(for: .text))
+                            .font(themeManager.font(for: .body))
+                    }
+                    .listRowBackground(themeManager.color(for: .buttonBackground))
+                }
+                .scrollContentBackground(.hidden)
             }
         }
-        .background(themeManager.color(for: .background))
+        
         .alert(isPresented: $showingError) {
             Alert(title: Text("Input Invalid"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
         }
@@ -87,10 +106,9 @@ struct AddEditItemView: View {
     }
 }
 
-#Preview("Edit Item") {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: TimerItem.self, configurations: config)
-    return AddEditItemView(onSave: { _ in})
-        .modelContainer(container)
-        .environmentObject(ThemeManager())
+struct AddEditItem_Previews: PreviewProvider {
+    static var previews: some View {
+        AddEditItemView(onSave: { _ in })
+            .environmentObject(ThemeManager())
+    }
 }

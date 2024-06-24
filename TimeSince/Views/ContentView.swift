@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  TimeSince
 //
-//  Created by Froning, Reeves | Reeves | DSCD on 2024/06/21.
+//  Created by Reeves Froning on 2024/06/21.
 //
 
 import SwiftUI
@@ -33,8 +33,11 @@ struct ContentView: View {
                                 selectedItem = item
                                 showingActionModal = true
                             }
+                            .listRowInsets(EdgeInsets(top: 0.8, leading: 0, bottom: 8, trailing: 0))
+                            .listRowBackground(Color.clear)
                     }
-                    .listRowBackground(themeManager.color(for: .buttonBackground))
+                    .listStyle(PlainListStyle())
+                    .background(Color.clear)
                 }
                 .scrollContentBackground(.hidden)
             }
@@ -63,7 +66,6 @@ struct ContentView: View {
                             Text("Theme")
                             Image(systemName: "chevron.down")
                                 .foregroundColor(themeManager.color(for: .accent))
-                                .font(.caption)
                         }
                         .font(themeManager.font(for: .body))
                     }

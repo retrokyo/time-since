@@ -2,7 +2,7 @@
 //  TimeSinceUITestsLaunchTests.swift
 //  TimeSinceUITests
 //
-//  Created by Froning, Reeves | Reeves | DSCD on 2024/06/21.
+//  Created by Reeves Froning on 2024/06/21.
 //
 
 import XCTest
