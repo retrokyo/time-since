@@ -17,7 +17,6 @@ struct ContentView: View {
     @State private var itemToEdit: TimerItem?
     @State private var showingAddItemView = false
     @EnvironmentObject private var themeManager: ThemeManager
-    @State private var refreshID = UUID()
     @State private var isEditing = false
     
     init(modelContext: ModelContext) {
@@ -42,7 +41,6 @@ struct ContentView: View {
                     .onMove(perform: viewModel.moveItem)
                     .listRowBackground(Color.clear)
                 }
-                .id(refreshID)
                 .background(Color.clear)
                 .listStyle(PlainListStyle())
                 .environment(\.editMode, .constant(isEditing ? .active : .inactive))
