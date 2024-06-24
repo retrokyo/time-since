@@ -35,14 +35,14 @@ struct AddEditItemView: View {
                     Button("Cancel") {
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .foregroundColor(themeManager.color(for: .accent))
+                    .foregroundStyle(themeManager.color(for: .accent))
                     .font(themeManager.font(for: .body))
                     
                     Spacer()
                     
                     Text(item == nil ? "Add Item": "Edit Item")
                         .font(themeManager.font(for: .headline))
-                        .foregroundColor(themeManager.color(for: .text))
+                        .foregroundStyle(themeManager.color(for: .text))
                     
                     Spacer()
                     
@@ -59,7 +59,7 @@ struct AddEditItemView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
                     }
-                    .foregroundColor(themeManager.color(for: .accent))
+                    .foregroundStyle(themeManager.color(for: .accent))
                     .font(themeManager.font(for: .headline))
                 }
                 .padding()
@@ -68,10 +68,10 @@ struct AddEditItemView: View {
                 Form {
                     Section {
                         TextField("Subject (e.g., you, your mom)", text: $subject)
-                            .foregroundColor(themeManager.color(for: .text))
+                            .foregroundStyle(themeManager.color(for: .text))
                             .font(themeManager.font(for: .body))
                         TextField("Action (e.g., ate)", text: $action)
-                            .foregroundColor(themeManager.color(for: .text))
+                            .foregroundStyle(themeManager.color(for: .text))
                             .font(themeManager.font(for: .body))
                     }
                     .listRowBackground(themeManager.color(for: .buttonBackground))

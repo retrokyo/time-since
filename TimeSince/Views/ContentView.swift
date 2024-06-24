@@ -59,7 +59,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .principal) {
                     Text("Last Time Since")
                         .font(themeManager.font(for: .title2))
-                        .foregroundColor(themeManager.color(for: .text))
+                        .foregroundStyle(themeManager.color(for: .text))
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
@@ -74,10 +74,10 @@ struct ContentView: View {
                     }) {
                         Text(isEditing ? "Done": "Edit")
                     }
-                    .foregroundColor(themeManager.color(for: .accent))
+                    .foregroundStyle(themeManager.color(for: .accent))
                 }
             }
-            .foregroundColor(themeManager.color(for: .text))
+            .foregroundStyle(themeManager.color(for: .text))
         }
         .overlay(
             ModalOverlay(

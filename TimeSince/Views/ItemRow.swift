@@ -15,10 +15,10 @@ struct ItemRow: View {
         VStack(alignment: .leading) {
             Text("Last time since \(item.subject) \(item.action)")
                 .font(themeManager.font(for: .title))
-                .foregroundColor(themeManager.color(for: .text))
+                .foregroundStyle(themeManager.color(for: .text))
             Text(item.lastOccurrence, style: .relative)
                 .font(themeManager.font(for: .title2))
-                .foregroundColor(themeManager.color(for: .accent))
+                .foregroundStyle(themeManager.color(for: .accent))
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
         }
         .padding()

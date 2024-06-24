@@ -36,6 +36,9 @@
 		BC443F1B2C25D1CC0076688E /* WidgetInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC443F172C25D0A80076688E /* WidgetInfo.plist */; };
 		BCA723882C26BA8200919A0E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA723872C26BA8200919A0E /* ThemeManager.swift */; };
 		BCF045CB2C2928D5007F7459 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045CA2C2928D5007F7459 /* FloatingButton.swift */; };
+		BCF045CF2C293FAE007F7459 /* WidgetTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF045CE2C293FAE007F7459 /* WidgetTheme.swift */; };
+		BCF045D02C294107007F7459 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA723872C26BA8200919A0E /* ThemeManager.swift */; };
+		BCF045D12C29435A007F7459 /* Theme90s.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC443F0F2C25C8290076688E /* Theme90s.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +110,7 @@
 		BC443F172C25D0A80076688E /* WidgetInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WidgetInfo.plist; sourceTree = "<group>"; };
 		BCA723872C26BA8200919A0E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		BCF045CA2C2928D5007F7459 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		BCF045CE2C293FAE007F7459 /* WidgetTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +282,7 @@
 				BC443EF92C258C3C0076688E /* AppIntent.swift */,
 				BC443EFB2C258C3F0076688E /* Assets.xcassets */,
 				BC443F172C25D0A80076688E /* WidgetInfo.plist */,
+				BCF045CE2C293FAE007F7459 /* WidgetTheme.swift */,
 			);
 			path = TimeSinceWidget;
 			sourceTree = "<group>";
@@ -491,11 +496,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF045D12C29435A007F7459 /* Theme90s.swift in Sources */,
 				BC443EF82C258C3C0076688E /* TimeSinceWidget.swift in Sources */,
+				BCF045CF2C293FAE007F7459 /* WidgetTheme.swift in Sources */,
 				BC443EFA2C258C3C0076688E /* AppIntent.swift in Sources */,
 				BC443F052C2591FE0076688E /* TimerItem.swift in Sources */,
 				BC443EF62C258C3C0076688E /* TimeSinceWidgetLiveActivity.swift in Sources */,
 				BC443EF42C258C3C0076688E /* TimeSinceWidgetBundle.swift in Sources */,
+				BCF045D02C294107007F7459 /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeSince/Preview Content\"";
+				DEVELOPMENT_TEAM = 28DXR5Y78N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeSince/Resources/AppInfo.plist;
@@ -680,6 +689,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeSince/Preview Content\"";
+				DEVELOPMENT_TEAM = 28DXR5Y78N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeSince/Resources/AppInfo.plist;
@@ -780,6 +790,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28DXR5Y78N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeSinceWidget/WidgetInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TimeSinceWidget;
@@ -806,6 +817,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28DXR5Y78N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TimeSinceWidget/WidgetInfo.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TimeSinceWidget;

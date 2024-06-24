@@ -22,7 +22,7 @@ struct NinetiesThemeModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(Theme90s.background)
-            .foregroundColor(Theme90s.text)
+            .foregroundStyle(Theme90s.text)
             .environment(\.font, themeManager.font(for: .body))
     }
 }

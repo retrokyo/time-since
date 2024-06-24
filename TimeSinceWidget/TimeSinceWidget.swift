@@ -13,37 +13,68 @@ struct Provider: TimelineProvider {
     let modelContainer: ModelContainer
     
     func placeholder(in contex: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), items: [])
+        SimpleEntry(date: Date(), items: [], theme: WidgetTheme.from(.system))
     }
     
     @MainActor func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let items = try? modelContainer.mainContext.fetch(FetchDescriptor<TimerItem>())
-        let entry = SimpleEntry(date: Date(), items: items ?? [])
+        let theme = getCurrentTheme()
+        let entry = SimpleEntry(date: Date(), items: items ?? [], theme: theme)
         completion(entry)
     }
     
     @MainActor func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         let items = try? modelContainer.mainContext.fetch(FetchDescriptor<TimerItem>())
-        let entry = SimpleEntry(date: Date(), items: items ?? [])
+        let theme = getCurrentTheme()
+        let entry = SimpleEntry(date: Date(), items: items ?? [], theme: theme)
         let timeline = Timeline(entries: [entry], policy: .atEnd)
         completion(timeline)
+    }
+    
+    func getCurrentTheme() -> WidgetTheme {
+        if let savedTheme = UserDefaults.standard.string(forKey: "app_theme"),
+           let appTheme = AppTheme(rawValue: savedTheme) {
+            return WidgetTheme.from(appTheme)
+        } else {
+            return WidgetTheme.from(.system)
+        }
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let items: [TimerItem]
+    let theme: WidgetTheme
 }
 
 struct TimerWidgetEntryView: View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
     
     var body: some View {
-        VStack {
-            ForEach(entry.items) { item in
-                Text("Last time since \(item.subject) \(item.action)")
-                Text(item.lastOccurrence, style: .relative)
+        ZStack {
+            if let topItem = entry.items.first {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Last Time Since")
+                        .font(entry.theme.mainFont)
+                        .foregroundStyle(entry.theme.textColor)
+                    Text("\(topItem.subject) \(topItem.action)")
+                        .font(entry.theme.titleFont)
+                        .foregroundStyle(entry.theme.accentColor)
+                    Text(topItem.lastOccurrence, style: .relative)
+                        .font(entry.theme.subtitleFont)
+                        .foregroundStyle(entry.theme.secondaryTextcolor)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding()
+            } else {
+                Text("No timers available")
+                    .font(entry.theme.mainFont)
+                    .foregroundStyle(entry.theme.textColor)
             }
+        }
+        .containerBackground(for: .widget) {
+            entry.theme.backgroundColor
         }
     }
 }
@@ -74,10 +105,10 @@ private let sharedModelContainer: ModelContainer = {
     }
 }()
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
     TimerWidget()
 } timeline: {
     SimpleEntry(date: .now, items: [
         TimerItem(id: UUID(), subject: "you", action: "slept", lastOccurrence: Date().addingTimeInterval(-3600), order: 0)
-    ])
+    ], theme: WidgetTheme.from(.system))
 }

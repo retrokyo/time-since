@@ -17,11 +17,13 @@ struct FloatingButton: View {
             showingThemePicker.toggle()
         }) {
             Image(systemName: "paintbrush.fill")
-                .foregroundColor(themeManager.color(for: .text))
+                .foregroundStyle(themeManager.color(for: .text))
                 .padding()
-                .background(themeManager.color(for: .accent))
-                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .shadow(radius: 4)
+                .background(
+                    Circle()
+                        .fill(themeManager.color(for: .accent))
+                        .shadow(radius: 4)
+                    )
         }
         .actionSheet(isPresented: $showingThemePicker) {
             ActionSheet(

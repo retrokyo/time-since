@@ -24,7 +24,7 @@ struct ItemActionModal: View {
             
             Text(item.lastOccurrence, style: .relative)
                 .font(themeManager.font(for: .subheadline))
-                .foregroundColor(themeManager.color(for: .accent))
+                .foregroundStyle(themeManager.color(for: .accent))
             
             HStack(spacing: 20) {
                 ActionButton(title: "Reset", icon: "arrow.clockwise", color: .green) {
@@ -65,7 +65,7 @@ struct ActionButton: View {
                 Text(title)
                     .font(themeManager.font(for: .caption))
             }
-            .foregroundColor(color)
+            .foregroundStyle(color)
         }
     }
 }
